@@ -64,5 +64,19 @@ namespace Posto_Combustivel_WF
                 throw new Exception("Bomba não encontrada pelo número!");
             }
         }
+        public Dictionary<TipoCombustivel, float> GerarRelatorio()
+        {
+            Dictionary<TipoCombustivel, float> precos = new Dictionary<TipoCombustivel, float>();
+            precos.Add(TipoCombustivel.Gasolina, 0f);
+            precos.Add(TipoCombustivel.Etanol, 0f);
+
+            foreach(Abastecimento a in Abastecimento)
+            {
+                TipoCombustivel tipo = a.Bomba.Tipo;
+                float valor = a.Valor;
+                precos[tipo] += valor;
+            }
+            return precos;
+        }
     }
 }

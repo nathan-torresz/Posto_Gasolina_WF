@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Posto_Combustivel_WF
 {
@@ -32,9 +34,13 @@ namespace Posto_Combustivel_WF
             a4.MarcarPago(true);
             a2.MarcarPago(true);
 
+            MostrarStatusBombas(posto1);
+
             MudarPreco(posto1);
 
-            MostrarStatusBombas(posto1);
+           
+
+            MostrarRelatorio(posto1);
         }
         static void MostrarStatusBombas(PostoCombustivel posto)
         {
@@ -65,6 +71,16 @@ namespace Posto_Combustivel_WF
             preco = float.Parse(Console.ReadLine());
             if (tipo == TipoCombustivel.Gasolina) posto.PrecoGas = preco;
             else if (tipo == TipoCombustivel.Etanol) posto.PrecoEtanol = preco;
+        }
+        static void MostrarRelatorio(PostoCombustivel posto)
+        {
+            Console.WriteLine($"Relatório de vendas do posto {posto.Nome}");
+            Dictionary<TipoCombustivel, float> valores = posto.GerarRelatorio();
+            for (int i = 0; i < valores.Count; i++)
+            {
+                Console.WriteLine($"{valores.ElementAt(i).Key}: R$ {valores.ElementAt(i).Value}");
+            }
+            Console.WriteLine();
         }
     }
 }
