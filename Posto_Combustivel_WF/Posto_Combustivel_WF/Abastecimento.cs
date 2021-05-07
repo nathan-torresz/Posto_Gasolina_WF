@@ -11,12 +11,11 @@ namespace Posto_Combustivel_WF
         private float _preco;
         private bool _isPago;
         public BombaCombustivel Bomba { get => _bomba; private set => _bomba = value; }
-        public float Qtd
-        {
-            get => _qtd;
-            set
+        public float Qtd { get => _qtd; 
+            set 
             {
-                if (value < 0) _qtd = 0;
+                _qtd = value;
+                if (value < 0) Qtd = 0; 
             }
         }
         public float Preco { get => _preco; private set => _preco = value; }

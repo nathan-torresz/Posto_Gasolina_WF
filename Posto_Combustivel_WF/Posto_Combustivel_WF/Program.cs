@@ -23,24 +23,31 @@ namespace Posto_Combustivel_WF
             MostrarStatusBombas(posto1);
 
             abastecimento1 = posto1.Abastecer(50, 2);
-            Abastecimento a2 = posto1.Abastecer(26, 2);
-            Abastecimento a3 = posto1.Abastecer(47, 4);
-            Abastecimento a4 = posto1.Abastecer(28, 3);
-            Abastecimento a5 = posto1.Abastecer(97.5f, 1);
+            Abastecimento a2 = posto1.Abastecer(38, 3);
+            Abastecimento a3 = posto1.Abastecer(78.9f, 1);
+            Abastecimento a4 = posto1.Abastecer(42, 3);
+            
 
             abastecimento1.MarcarPago(true);
             a2.MarcarPago(true);
             a3.MarcarPago(true);
             a4.MarcarPago(true);
-            a2.MarcarPago(true);
 
             MostrarStatusBombas(posto1);
 
+            MostrarRelatorio(posto1);
+
             MudarPreco(posto1);
 
-           
+            Abastecimento a5 = posto1.Abastecer(15, 3);
+            Abastecimento a6 = posto1.Abastecer(10.89f, 1);
+            Abastecimento a7 = posto1.Abastecer(26, 3);
+
+            MostrarStatusBombas(posto1);
 
             MostrarRelatorio(posto1);
+
+            Console.ReadKey();
         }
         static void MostrarStatusBombas(PostoCombustivel posto)
         {
@@ -84,3 +91,4 @@ namespace Posto_Combustivel_WF
         }
     }
 }
+

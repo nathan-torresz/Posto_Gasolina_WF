@@ -69,7 +69,7 @@ namespace Posto_Combustivel_WF
             Dictionary<TipoCombustivel, float> precos = new Dictionary<TipoCombustivel, float>();
             precos.Add(TipoCombustivel.Gasolina, 0f);
             precos.Add(TipoCombustivel.Etanol, 0f);
-
+  
             foreach(Abastecimento a in Abastecimento)
             {
                 TipoCombustivel tipo = a.Bomba.Tipo;
